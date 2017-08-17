@@ -1,0 +1,36 @@
+<div ng-repeat="movie in moviesList.movieTime">
+  <div class="col-md-4">
+    <div class="thumbnail" style="text-align:center">
+      <a href="api/movies">
+       <img ng-src="assets/{{movie.img}}.jpg" ng-alt="{{movie.title}}" style="width:50%; max-height:250px;border-radius:10px;">
+       <div class="caption">
+
+       </div>
+       </a>
+
+      <p><span style="color:red">Title : </span><br />{{movie.title}}</p>
+      <p><span style="color:red">Genre : </span><br />{{movie.genre}}</p>
+      <p><span style="color:red">Release year : </span><br />{{movie.year}}</p>
+      <p><span style="color:red">Starring : </span><br />{{movie.star}}</p>
+      <button type="button" class="btn btn-primary" ng-click="moviesList.removeMovie(movie._id)">Remove Movie</button>
+      <button type="button" class="btn btn-primary" ng-click="moviesList.editMovie(movie._id);show_me = !show_me">Edit Movie</button>
+      <div ng-show="show_me">
+
+        <input class="form-control" type="text" placeholder="please enter movie title" ng-model="moviesList.movie.title">
+        <input class="form-control" type="text" placeholder="please enter movie star" ng-model="moviesList.movie.star">
+        <select class="form-control" type="text" placeholder="please choose movie genre" ng-model="moviesList.movie.genre">
+         <option value="Action">Action</option>
+         <option value="Thriller">Thriller</option>
+         <option value="Comedy">Comedy</option>
+         <option value="Superhero">Superhero</option>
+         <option value="Horror">Horror</option>
+       </select>
+        <input class="form-control" type="number" placeholder="please enter movie year" ng-model="moviesList.movie.year">
+        <input class="form-control" type="number" placeholder="please enter movie img" ng-model="moviesList.movie.img">
+        <button class="btn btn-info" ng-click="moviesList.saveMovie()">Save Edit</button>
+
+      </div>
+
+    </div>
+  </div>
+</div>
